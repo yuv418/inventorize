@@ -11,5 +11,7 @@
 
 </ul>
 
+<%= button_to "Create Item", new_item_path, method: :get, params: {schema_id: @schema.id}, class: :action_button %>
+
 <%= button_to "Edit", edit_schema_path(@schema), method: :get, class: :action_button %>
 <%= button_to "Delete", schema_path(@schema), method: :delete, data: { confirm: "Are you sure you want to delete this schema? This action cannot be undone." }, class: :action_button %>

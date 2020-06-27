@@ -8,7 +8,7 @@
         <div class="form_data_container">
             <% @schema.fields.each do |field| %>
                 <div class="form_container">
-                    <%= form.label :data, field %>
+                    <%= form.label :data, field.titlecase %>
                     <%= form.text_field :data, {multiple: true} %>
                 </div>
             <% end %>
