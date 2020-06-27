@@ -1,0 +1,24 @@
+<% categories.each do |category| %>
+
+    <% unless category.parent %>
+        <div class="base_category">
+    <% end %>
+
+    <div class="category_link_container">
+        <% if form %>
+            <%= form.check_box :categories, {multiple: true}, category.id, nil %>
+        <% end %>
+        <%= link_to category.name, category, class: :category_link %>
+    </div>
+
+
+    <% if category.children.any? %>
+        <div class="child_category">
+            <%= render partial: "categories/tree", locals: {categories: category.children, form: form} %>
+        </div>
+    <% end %>
+
+    <% unless category.parent_id %>
+        </div>
+    <% end %>
+<% end %>

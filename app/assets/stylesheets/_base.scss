@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Palanquin');
+
+$font: "Palanquin", sans-serif;
+
+$header-button-start-color: #0990f7;
+$header-button-end-color: #0abffc;
+
+$action-button-start-color: #fc922f;
+$action-button-end-color: #fc641e;
+
+* {
+    font-family: $font;
+}
+
+%link {
+    color: black;
+}
+
+a {
+    color: black;
+}
+
+%button {
+    text-decoration: none;
+
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 17px;
+    box-shadow: none;
+    transition: 0.2s;
+    border:none;
+}
+
+%button:hover {
+    box-shadow: 0 0 4px #888;
+    cursor: pointer;
+}
+
+.action_button {
+    @extend %button;
+
+    background: linear-gradient(to right, $action-button-start-color, $action-button-end-color);
+    color: white;
+}

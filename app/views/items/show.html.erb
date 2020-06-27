@@ -1,0 +1,16 @@
+<%= render "global/header" %>
+
+<h2>Viewing Item</h2>
+
+<% @item.field_data.each do |field, value| %>
+    <div class="item_info">
+        <b><%= field.titlecase %>:</b>
+        <p><%= value %></p>
+    </div>
+<% end %>
+<% if @item.categories.any? %>
+    <h4>This item belongs to the following categories:</h4>
+    <% @item.categories.each do |category| %>
+        <%= link_to category.name, category, class: :category_link %>
+    <% end %>
+<% end %>

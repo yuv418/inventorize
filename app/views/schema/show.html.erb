@@ -1,0 +1,15 @@
+<%= render "global/header" %>
+
+<h2>Schema "<%= @schema.name %>"</h2>
+
+<h4>Fields</h4>
+<ul>
+
+  <% @schema.fields.each do |field| %>
+  <li><%= field %></li>
+  <% end %>
+
+</ul>
+
+<%= button_to "Edit", edit_schema_path(@schema), method: :get, class: :action_button %>
+<%= button_to "Delete", schema_path(@schema), method: :delete, data: { confirm: "Are you sure you want to delete this schema? This action cannot be undone." }, class: :action_button %>

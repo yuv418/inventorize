@@ -1,0 +1,28 @@
+@import "base";
+
+.header {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .header_list {
+        display: flex;
+        flex-direction: row;
+
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+    .header_item {
+        a {
+            @extend %button;
+
+            background: linear-gradient(to right, $header-button-start-color, $header-button-end-color);
+            color: white;
+        }
+        margin-right: 10px;
+    }
+
+    border-bottom: 2px solid grey;
+}

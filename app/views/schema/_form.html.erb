@@ -1,0 +1,19 @@
+<%= form_with model: @schema do |form| %>
+    <% if @schema.errors.any? %>
+        <b>Could not save schema:</b>
+        <% @schema.errors.full_messages.each do |error| %>
+            <p><%= error %></p>
+        <% end %>
+    <% end %>
+
+    <div class="form_container">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+
+    <div class="form_container">
+        <%= react_component "schema/SchemaCreation", fields: @schema.fields, scope: :schema %>
+    </div>
+
+    <%= form.submit class: :action_button %>
+<% end %>

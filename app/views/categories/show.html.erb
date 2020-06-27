@@ -1,0 +1,25 @@
+<%= render "global/header" %>
+
+<h2>Category "<%= @category.name %>"</h2>
+
+<div class="category_details">
+    <% if @category.parent %>
+        <p>This category belongs to the parent category: <%= link_to @category.parent.name, @category.parent %></p>
+    <% end %>
+
+
+    <% if @category.children.any? %>
+
+        <h4>Direct children:</h4>
+        <% @category.children.each do |category| %>
+            <%= link_to category.name, category, class: "category_link" %>
+        <% end %>
+
+    <% end %>
+</div>
+
+<div class="category_actions">
+    <%= button_to "Create Child Category", new_category_path, method: :get, params: {parent_id: @category.id}, class: :action_button %>
+    <%= button_to "Edit", edit_category_path, method: :get, class: :action_button %>
+    <%= button_to "Delete", category_path, method: :delete, data: {confirm: "Are you sure you want to delete this category? All items associated with this category will be DISOWNED."}, class: :action_button %>
+</div>

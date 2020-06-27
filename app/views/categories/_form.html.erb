@@ -1,0 +1,18 @@
+<%= form_with model: @category, local: true  do |form| %>
+    <% if @category.errors.any? %>
+        <b>Could not save category:</b>
+        <% @category.errors.full_messages.each do |error| %>
+            <p><%= error %></p>
+        <% end %>
+    <% end %>
+    <div class="form_container">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+
+    <% if @category.parent %>
+        <%= form.hidden_field :parent_id, value: @category.parent.id %>
+    <% end %>
+
+    <%= form.submit class: :action_button %>
+<% end %>

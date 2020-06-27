@@ -1,0 +1,27 @@
+<%= render "global/header" %>
+
+<h2>New Item</h2>
+
+<% if @schema %>
+    <h4>Using Schema: <%= @schema.name %></h4>
+    <%= form_with model: @item, scope: :item do |form| %>
+        <div class="form_data_container">
+            <% @schema.fields.each do |field| %>
+                <div class="form_container">
+                    <%= form.label :data, field %>
+                    <%= form.text_field :data, {multiple: true} %>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="form_category_container">
+            <%= form.label :categories %>
+            <%= render partial: "categories/tree", locals: {categories: Category.where(parent: nil), form: form} %>
+        </div>
+
+        <%= form.hidden_field :schema_id, value: @schema.id %>
+        <%= form.submit class: :action_button %>
+    <% end %>
+<% else %>
+    <p>You cannot create an item without a schema.</p>
+<% end %>

@@ -1,0 +1,15 @@
+<%= render "global/header" %>
+
+<h2>Schemas</h2>
+
+<div class="schema_list">
+    <% if @schemas.length > 0 %>
+        <% @schemas.each do |schema| %>
+            <%= link_to schema.name, schema_path(schema), class: "schema_link" %><br />
+        <% end %>
+    <% else %>
+        <p>Sorry, but there were no schemas found.</p>
+    <% end %>
+</div>
+
+<%= button_to "Create a Schema", new_schema_path, method: :get, class: "action_button" %>
