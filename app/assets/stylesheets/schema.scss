@@ -7,4 +7,12 @@
     .schema_link {
         @extend %link;
     }
+
+}
+
+
+.schema_actions {
+    * {
+        margin-bottom: 5px;
+    }
 }
