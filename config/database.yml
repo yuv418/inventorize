@@ -12,10 +12,6 @@ default: &default
 
 development:
   <<: *default
-  host: 127.0.0.1
-  port: 3306
-  username: ***REMOVED***
-  password: ***REMOVED***
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
