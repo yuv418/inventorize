@@ -3,7 +3,7 @@
 <h2>Categories</h2>
 
 <% if @categories.any? %>
-    <%= render partial: "tree", locals: {categories: @categories, form: nil} %>
+    <%= render partial: "tree", locals: {categories: @categories, form: nil, item: nil} %>
 <% else %>
     <p>There were no categories found.
 <% end %>

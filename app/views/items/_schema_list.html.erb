@@ -1,0 +1,36 @@
+<h4>Schema: <%= schema.name %></h4>
+<table>
+  <tr>
+    <% schema.fields.each do |field| %>
+        <th><%= field.titlecase %></th>
+    <% end %>
+    <th>Categories</th>
+    <th>Actions</th>
+  </tr>
+
+
+  <% items.each do |item| %>
+    <tr>
+      <% item.data.each do |data| %>
+        <% if data.length > 20 %>
+          <% data = data[0..19] + "..." %>
+        <% end %>
+
+        <td><%= data %></td>
+      <% end %>
+
+      <td>
+        <% item.categories.each do |category| %>
+          <%= link_to category.name, category %>
+        <% end %>
+      </td>
+
+      <td>
+        <%= link_to "View", item %>
+        <%= link_to "Edit", edit_item_path(item) %>
+        <%= link_to "Delete", item, method: :delete, data: {confirm: "Are you sure you want to delete this item?"} %>
+      </td>
+    </tr>
+  <% end %>
+
+</table>

@@ -1,0 +1,4 @@
+<% schemas = items.map{ |i| i.schema }.uniq %>
+<% schemas.each do |schema| %>
+    <%= render partial: "items/schema_list", locals: {schema: schema, items: items.where(schema: schema)} %>
+<% end %>

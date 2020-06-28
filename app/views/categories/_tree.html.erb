@@ -5,8 +5,12 @@
     <% end %>
 
     <div class="category_link_container">
+
         <% if form %>
-            <%= form.check_box :categories, {multiple: true}, category.id, nil %>
+            <% unless item.new_record? %>
+                <% checked = category.items.include? item %>
+            <% end %>
+            <%= form.check_box :categories, {multiple: true, checked: checked}, category.id, nil %>
         <% end %>
         <%= link_to category.name, category, class: :category_link %>
     </div>
@@ -14,7 +18,7 @@
 
     <% if category.children.any? %>
         <div class="child_category">
-            <%= render partial: "categories/tree", locals: {categories: category.children, form: form} %>
+            <%= render partial: "categories/tree", locals: {categories: category.children, form: form, item: item} %>
         </div>
     <% end %>
 

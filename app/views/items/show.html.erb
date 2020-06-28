@@ -14,3 +14,8 @@
         <%= link_to category.name, category, class: :category_link %>
     <% end %>
 <% end %>
+
+<div class="item_actions">
+    <%= button_to "Edit Item", edit_item_path(@item), method: :get, class: :action_button %>
+    <%= button_to "Delete Item", @item, method: :delete, class: :action_button, data: {confirm: "Are you sure you want to delete this item?"} %>
+</div>
