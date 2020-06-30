@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :schemas, controller: :schema
   resources :categories
   resources :items
+  resources :autofillers, only: [:index, :show], param: :name
 
   root to: "categories#index"
 end

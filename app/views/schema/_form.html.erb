@@ -12,7 +12,7 @@
     </div>
 
     <div class="form_container">
-        <%= react_component "schema/SchemaCreation", fields: @schema.fields, scope: :schema %>
+        <%= react_component "schema/SchemaCreation", fields: @schema.fields, autofill_mapping: @schema.autofill_mapping, autofill: @schema.autofill, scope: :schema, autofiller: @schema.autofiller %>
     </div>
 
     <%= form.submit class: :action_button %>

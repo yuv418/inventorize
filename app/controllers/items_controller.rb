@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user! # TODO filter by permissions later.
   def new
     @item = Item.new
     if params[:schema_id]

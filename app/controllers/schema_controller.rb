@@ -47,6 +47,6 @@ class SchemaController < ApplicationController
   private
 
   def schema_params
-    params.require(:schema).permit(:name, fields: [])
+    params.require(:schema).permit(:name, :autofiller, :autofill, fields: [], autofill_mapping: [])
   end
 end
