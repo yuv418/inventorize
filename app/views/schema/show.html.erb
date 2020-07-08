@@ -5,12 +5,17 @@
 <h4>Fields</h4>
 <ul>
 
-  <% @schema.fields.each do |field| %>
-  <li><%= field %></li>
+  <% @schema.fields.each_with_index do |field, i| %>
+      <% if @schema.autofill? %>
+          <li><%= field %><b> => autofill field</b> <%= @schema.autofill_mapping[i] %></li>
+      <% else %>
+        <li><%= field %></li>
+      <% end %>
   <% end %>
-
 </ul>
 
+<p>This schema <%= @schema.autofill ? "is" : "is not" %> mapped to <%= @schema.autofill ? "the autofiller #{@schema.autofiller.to_s.titlecase}" : "an autofiller" %>.
+    <%= "You can add an autofill mapping by editing this schema." unless @schema.autofill %></p>
 
 <div class="schema_actions">
   <%= button_to "Create Item", new_item_path, method: :get, params: {schema_id: @schema.id}, class: :action_button %>

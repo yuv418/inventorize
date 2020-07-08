@@ -10,4 +10,12 @@ class Schema < ApplicationRecord
     self.autofill = false if self.autofill == nil
     self.autofiller ||= ""
   end
+
+  def field_autofill
+    fields.each_with_index.map{ |f, i| [f, self.autofill_mapping[i]] }.to_h
+  end
+
+  def autofiller_class
+    (Schema.last.autofiller.titlecase + "Autofiller").constantize
+  end
 end

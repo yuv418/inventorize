@@ -2,10 +2,14 @@
 
 <h2>Viewing Item</h2>
 
-<% @item.field_data.each do |field, value| %>
+<% @item.field_data.each_with_index do |(field, value), index| %>
     <div class="item_info">
         <b><%= field.titlecase %>:</b>
         <p><%= value %></p>
+        <% if @item.schema.autofill? %>
+            <b>=> autofill field </b>
+            <p><%= @item.schema.autofill_mapping[index] %></p>
+        <% end %>
     </div>
 <% end %>
 <% if @item.categories.any? %>

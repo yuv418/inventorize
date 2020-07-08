@@ -14,6 +14,10 @@ class Autofill
     def self.fields
       #{attrs_hash.keys}
     end
+
+    def self.feed
+      #{":" + feed.to_s}
+    end
     EOF
 
   end
