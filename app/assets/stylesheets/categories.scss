@@ -13,7 +13,6 @@
 }
 
 .base_category {
-    width: 10%;
 
 
     .child_category {
@@ -21,10 +20,14 @@
     }
 }
 
+.category_tree {
+    margin-bottom: 15px;
+}
 
+.category_children {
+    @extend %box_info;
+}
 
 .category_actions {
-    * {
-        margin-bottom: 5px;
-    }
+    @extend %actions;
 }

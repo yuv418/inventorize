@@ -3,8 +3,21 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.item_info {
-    * {
-        display: inline;
+@import "base";
+
+.item_info_container {
+    .item_info {
+        * {
+            display: inline;
+        }
+        margin-bottom: 10px;
     }
+}
+
+.item_actions {
+    @extend %actions;
+}
+
+.item_categories {
+    @extend %box_info;
 }

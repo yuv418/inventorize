@@ -23,22 +23,39 @@ a {
 %button {
     text-decoration: none;
 
-    padding: 5px 10px;
-    border-radius: 4px;
+    padding: 16px;
     font-size: 17px;
     box-shadow: none;
     transition: 0.2s;
     border:none;
+
+    &:hover {
+        box-shadow: 0 0 4px #888;
+        cursor: pointer;
+    }
 }
 
-%button:hover {
-    box-shadow: 0 0 4px #888;
-    cursor: pointer;
+%box_info {
+    border: 2px solid black;
+    * {
+        margin: 10px;
+    }
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+%actions {
+    display: flex;
+    flex-direction: row;
+
+    > *:not(:first-child) {
+        margin-left: 15px;
+    }
 }
 
 .action_button {
     @extend %button;
 
-    background: linear-gradient(to right, $action-button-start-color, $action-button-end-color);
+    background: #5e90a8;
     color: white;
 }

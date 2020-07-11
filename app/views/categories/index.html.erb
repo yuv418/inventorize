@@ -1,11 +1,13 @@
-<%= render "global/header" %>
-
 <h2>Categories</h2>
 
-<% if @categories.any? %>
-    <%= render partial: "tree", locals: {categories: @categories, form: nil, item: nil} %>
-<% else %>
-    <p>There were no categories found.
-<% end %>
+<div class="category_tree">
+    <% if @categories.any? %>
+        <%= render partial: "tree", locals: {categories: @categories, form: nil, item: nil} %>
+    <% else %>
+        <p>There were no categories found.</p>
+    <% end %>
+</div>
 
-<%= button_to "New Category", new_category_path, method: :get, class: :action_button %>
+<div class="category_actions">
+    <%= button_to "New Category", new_category_path, method: :get, class: :action_button %>
+</div>

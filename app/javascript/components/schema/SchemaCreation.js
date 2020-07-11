@@ -119,18 +119,20 @@ class SchemaCreation extends React.Component {
         {inputs}
         <button type="button" onClick={this.addField} className="action_button">Add Field</button>
 
-        <br /><label htmlFor={this.props.scope + "_autofill"}>Autofill?</label>
-        <input type="checkbox" onChange={this.changeAutofill} checked={this.state.autofill} name={this.props.scope + "[autofill]"} value="1"/>
+        <div class="autofill_info_container">
+          <label htmlFor={this.props.scope + "_autofill"}>Autofill? </label>
+          <input type="checkbox" onChange={this.changeAutofill} checked={this.state.autofill} name={this.props.scope + "[autofill]"} value="1"/>
 
-        {this.state.autofill &&
-         <div className="form_container">
-          <label htmlFor="autofiller">Choose an autofiller:</label>
-         <select className="autofiller" id="autofiller_choose" value={this.state.autofiller} onChange={this.autofillFields} name={this.props.scope + "[autofiller]"}>
-            <option label=" "></option>
-            {autofillers}
-          </select>
-         </div>
-        }
+          {this.state.autofill &&
+          <div className="form_container">
+            <label htmlFor="autofiller">Choose an autofiller:</label>
+          <select className="autofiller" id="autofiller_choose" value={this.state.autofiller} onChange={this.autofillFields} name={this.props.scope + "[autofiller]"}>
+              <option label=" "></option>
+              {autofillers}
+            </select>
+          </div>
+          }
+        </div>
       </React.Fragment>
     );
   }

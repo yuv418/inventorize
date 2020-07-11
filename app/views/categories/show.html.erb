@@ -1,5 +1,3 @@
-<%= render "global/header" %>
-
 <h2>Category "<%= @category.name %>"</h2>
 
 <div class="category_details">
@@ -9,11 +7,12 @@
 
 
     <% if @category.children.any? %>
-
-        <h4>Direct children:</h4>
-        <% @category.children.each do |category| %>
-            <%= link_to category.name, category, class: "category_link" %>
-        <% end %>
+        <div class="category_children">
+            <h4>Direct Children:</h4>
+            <% @category.children.each do |category| %>
+                <%= link_to category.name, category, class: "category_link" %>
+            <% end %>
+        </div>
 
     <% end %>
 </div>

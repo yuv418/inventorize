@@ -1,4 +1,4 @@
-<%= form_with model: @schema do |form| %>
+<%= form_with model: @schema, class: :schema_form do |form| %>
     <% if @schema.errors.any? %>
         <b>Could not save schema:</b>
         <% @schema.errors.full_messages.each do |error| %>
@@ -11,8 +11,8 @@
         <%= form.text_field :name %>
     </div>
 
-    <div class="form_container">
-        <%= react_component "schema/SchemaCreation", fields: @schema.fields, autofill_mapping: @schema.autofill_mapping, autofill: @schema.autofill, scope: :schema, autofiller: @schema.autofiller %>
+    <div class="form_container schema_form_fields">
+        <%= react_component "schema/SchemaCreation", fields: @schema.fields, autofill_mapping: @schema.autofill_mapping, autofill: @schema.autofill, scope: :schema, autofiller: @schema.autofiller, class: "schema_form_fields_react"%>
     </div>
 
     <%= form.submit class: :action_button %>
