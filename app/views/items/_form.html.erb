@@ -12,6 +12,11 @@
         <% end %>
     </div>
 
+    <div class="form_data_container">
+        <%= form.label :picture  %>
+        <%= form.file_field :picture %>
+    </div>
+
     <div class="form_category_container">
         <%= form.label :categories %>
         <%= render partial: "categories/tree", locals: {categories: Category.where(parent: nil), form: form, item: @item} %>

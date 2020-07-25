@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
 
   private
   def permit_params
-    params.require(:item).permit(:schema_id, data: [], categories: [])
+    params.require(:item).permit(:schema_id, :picture, data: [], categories: [])
   end
 
   def query_params

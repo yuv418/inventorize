@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   has_and_belongs_to_many :categories
   serialize :data, JSON
   before_create :autofill
+  has_one_attached :picture
 
   def field_data
     (self.schema.fields.zip self.data).to_h
