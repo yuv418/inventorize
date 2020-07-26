@@ -47,6 +47,7 @@ a {
 %actions {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 
     > *:not(:first-child) {
         margin-left: 15px;
@@ -58,4 +59,27 @@ a {
 
     background: #5e90a8;
     color: white;
+}
+
+
+@media only screen and (max-width: 1000px) {
+
+    %actions {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        > *:not(:first-child) {
+            margin-left: 0
+        }
+
+        > *:first-child {
+            margin-left: 0;
+        }
+        > * {
+            margin: 10px;
+
+//            margin-left: 15px;
+        }
+    }
 }

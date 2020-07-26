@@ -22,6 +22,24 @@
         <%= link_to "Log In", new_user_session_path %>
       </li>
       <% end %>
+      <li id="mobile_close_menu" class="header_item">
+        <a class="header_item" onclick="mobile_menu_toggle()">✕</a>
+      </li>
     </ul>
+    <a id="mobile_menu_toggler" class="header_item" onclick="mobile_menu_toggle()">☰</a>
   </div>
 </div>
+
+<script>
+function mobile_menu_toggle() {
+    var body = document.querySelector("body");
+
+    if (body.classList.contains("menu")) {
+        body.classList.remove("menu");
+    }
+    else {
+        body.classList.add("menu");
+    }
+}
+
+</script>

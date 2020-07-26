@@ -21,3 +21,8 @@
 .item_categories {
     @extend %box_info;
 }
+
+.item_table {
+    display: flex;
+    overflow-x: scroll;
+}
