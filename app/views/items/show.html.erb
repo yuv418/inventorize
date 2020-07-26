@@ -1,7 +1,9 @@
 <h2><%= @item.schema.name %> Item</h2>
 
-<% if @item.picture.attached? %>
-    <%= image_tag @item.picture, style: "width: 300px" %>
+<% if @item.pictures.attached? %>
+    <% @item.pictures.each do |picture| %>
+        <%= image_tag picture, style: "width: 300px" %>
+    <% end %>
 <% end %>
 <div class="item_info_container">
     <% @item.field_data.each_with_index do |(field, value), index| %>
